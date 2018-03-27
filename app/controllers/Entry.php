@@ -1,4 +1,5 @@
 <?php
+
 //Контроллер
 class Entry extends Controller {
     
@@ -14,6 +15,7 @@ class Entry extends Controller {
     
     public function addNewItemAction($params) {
         $result = explode(':', $params);
+        $this->view->setData($result);
         $this->view->render('addnewitem/index');
     }
 }

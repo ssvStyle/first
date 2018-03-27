@@ -5,7 +5,7 @@ class AddNewEntry extends Model {
 			
     
     public function entryDay() {
-      return $result = $this->query("SELECT * FROM users")->fetchALL(PDO::FETCH_ASSOC);
+      return $result = $this->query("SELECT * FROM record")->fetchALL(PDO::FETCH_ASSOC);
     }
 
 }
