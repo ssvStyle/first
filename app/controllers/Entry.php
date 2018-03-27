@@ -15,7 +15,7 @@ class Entry extends Controller {
     
     public function addNewItemAction($params) {
         $result = explode(':', $params);
-        $this->view->setData($result);
+        $this->view->setData(AddNewEntry::checkDate($result));
         $this->view->render('addnewitem/index');
     }
 }
