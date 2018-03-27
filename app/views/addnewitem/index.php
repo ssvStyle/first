@@ -7,8 +7,10 @@
 
 <?php $this->start('body'); ?>
         <!--body-->
-        <h2>Добавить новую запись</h2>
-        <pre>
-        <?php print_r($this->data); ?>
-        </pre>
+        <div class="rightCol">
+            <h3>Добавить новую запись</h3><hr>
+            <pre>
+            <?php print_r($this->data); ?>
+            </pre>
+        </div>
 <?php $this->end(); ?>
