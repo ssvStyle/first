@@ -75,6 +75,7 @@
 
         .menuPages a{
             background: #f8f1f1;
+            color: #337ab7;
             text-decoration: none;
         }
         .menuPages:hover{

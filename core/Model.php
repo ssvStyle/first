@@ -17,7 +17,7 @@ class Model extends DB {
                         return $arayDate = ['day' => $day, 'month' => $month, 'year' => $year];
                     } else {
                         $day+2;
-                        return $arayDate = [$day, $month, $year];
+                        return $arayDate = ['day' => $day, 'month' => $month, 'year' => $year];
                     }
             }
     }
