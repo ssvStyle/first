@@ -9,7 +9,7 @@ class AddNewEntry extends Model {
     }
     
     public function entryTooday() {
-        $arayDate = ['day' => date('j'), 'month' => date('n'), 'year' => date('Y')];
+        return $this->checkDate($arayDate = [date('j'), date('n'), date('Y')]);
         $day = date('j');
             
     }
