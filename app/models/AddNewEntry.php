@@ -7,5 +7,18 @@ class AddNewEntry extends Model {
     public function entryDay() {
       return $result = $this->query("SELECT * FROM record")->fetchALL(PDO::FETCH_ASSOC);
     }
+    public function entryTooday() {
+        $day = date('j');
+            if (!($day % 2)){
+                return $arayDate = ['day' => date('j'), 'month' => date('n'), 'year' => date('Y')];
+            } else {
+                    if(!($day++ % 2)){
+                        return $arayDate = ['day' => date('j'), 'month' => date('n'), 'year' => date('Y')];
+                    } else {
+                        $day+2;
+                        return $arayDate = ['day' => $day, 'month' => date('n'), 'year' => date('Y')];
+                    }
+            }
+    }
 
 }
