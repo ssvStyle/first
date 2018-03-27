@@ -9,7 +9,7 @@ class Entry extends Controller {
     }
     public function indexAction() {
         $data = new AddNewEntry();
-        $this->view->setData($data->entryDay());
+        $this->view->setData($data->entryTooday());
         $this->view->render('entry/index');
     }
     
