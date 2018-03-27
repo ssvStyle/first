@@ -23,12 +23,12 @@
             <!--TopBar-->
             	<div class="topBar">
                     <div class="social">
-                            <a href="#"><img src="img/social/facebook.png" alt="facebook" title="facebook"></a>
-                            <a href="#"><img src="img/social/google.png" alt="google" title="google"></a>
+                            <a href="#"><img src="<?php echo PROOT; ?>img/social/facebook.png" alt="facebook" title="facebook"></a>
+                            <a href="#"><img src="<?php echo PROOT; ?>img/social/google.png" alt="google" title="google"></a>
                             <!--<a href="#"><img src="img/social/instagram.png" alt="instagram" title="instagram"></a>-->
                     </div>
                     <div class="login">
-                        <form action="lib/autoriz" method="post">
+                        <form action="<?php echo PROOT; ?>lib/autoriz" method="post">
                             <label>Логин :</label>
                             <input placeholder="Номер телефона 067..." required="" id="username" type="text" name="login">
                             <label>Пароль :</label>
@@ -41,13 +41,13 @@
             <!--endTopBar-->
             <!--menu-->
                 <div class="header">
-                    <div class="logo"><a href="home"><img src="img/logov2.png" alt="Логотип" title="Логотип"></a></div>
+                    <div class="logo"><a href="<?php echo PROOT; ?>home"><img src="<?php echo PROOT; ?>img/logov2.png" alt="Логотип" title="Логотип"></a></div>
                     <div class="menu">
-                        <div class="menuPages"><a href="home">Главная</a></div>
-                            <div class="menuPages"><a href="entry">Запись</a></div>
-                            <div class="menuPages"><a href="services">Виды услуг</a></div>
-                            <div class="menuPages"><a href="about">О сайте</a></div>
-                            <div class="menuPages"><a href="contact">Контакты</a></div>
+                        <div class="menuPages"><a href="<?php echo PROOT; ?>home">Главная</a></div>
+                            <div class="menuPages"><a href="<?php echo PROOT; ?>entry">Запись</a></div>
+                            <div class="menuPages"><a href="<?php echo PROOT; ?>services">Виды услуг</a></div>
+                            <div class="menuPages"><a href="<?php echo PROOT; ?>about">О сайте</a></div>
+                            <div class="menuPages"><a href="<?php echo PROOT; ?>contact">Контакты</a></div>
                     </div>  
                 </div>
             <!--endmenu-->
@@ -55,14 +55,14 @@
                 <div class="slider">
                     <!--<div class="caption">это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал </div>
                 -->
-                        <div><img src="img/galery/1.jpg" title="" alt=""></div>
-                        <div><img src="img/galery/2.jpg" title="" alt=""></div>
-                        <div><img src="img/galery/3.jpg" title="" alt=""></div>
-                        <div><img src="img/galery/4.jpg" title="" alt=""></div>
-                        <div><img src="img/galery/5.jpg" title="" alt=""></div>
-                        <div><img src="img/galery/6.jpg" title="" alt=""></div>
-                        <div><img src="img/galery/7.jpg" title="" alt=""></div>
-                        <div><img src="img/galery/8.jpg" title="" alt=""></div>
+                        <div><img src="<?php echo PROOT; ?>img/galery/1.jpg" title="" alt=""></div>
+                        <div><img src="<?php echo PROOT; ?>img/galery/2.jpg" title="" alt=""></div>
+                        <div><img src="<?php echo PROOT; ?>img/galery/3.jpg" title="" alt=""></div>
+                        <div><img src="<?php echo PROOT; ?>img/galery/4.jpg" title="" alt=""></div>
+                        <div><img src="<?php echo PROOT; ?>img/galery/5.jpg" title="" alt=""></div>
+                        <div><img src="<?php echo PROOT; ?>img/galery/6.jpg" title="" alt=""></div>
+                        <div><img src="<?php echo PROOT; ?>img/galery/7.jpg" title="" alt=""></div>
+                        <div><img src="<?php echo PROOT; ?>img/galery/8.jpg" title="" alt=""></div>
                 </div>
             <!--endslider-->
             <!--content-->
@@ -70,8 +70,8 @@
                     <div class="leftCol">
                         <p>Для записи выберите месяц и число<br><?php include 'views/needReg.php';?></p>
                             <div id="calendar">
-                                <noscript><?php include 'lib/calendar.php';?></noscript>
-                                <img src="img/prev.png" alt="Предыдущий месяц" title="Предыдущий месяц" id="prevMonth" onclick="prevMonth()"  style="cursor: pointer;"><span id="monthJS"></span><img src="img/next.png" alt="Следующий месяц" title="Следующий месяц" id="nextMonth" onclick="nextMonth()" style="cursor: pointer;">
+                                <noscript><?php include PROOT.'lib/calendar.php';?></noscript>
+                                <img src="<?php echo PROOT; ?>img/prev.png" alt="Предыдущий месяц" title="Предыдущий месяц" id="prevMonth" onclick="prevMonth()"  style="cursor: pointer;"><span id="monthJS"></span><img src="<?php echo PROOT; ?>img/next.png" alt="Следующий месяц" title="Следующий месяц" id="nextMonth" onclick="nextMonth()" style="cursor: pointer;">
                                 <div id="month"></div>
                                 <div id="week">Пн</div><div id="week">Вт</div><div id="week">Ср</div><div id="week">Чт</div><div id="week">Пт</div><div id="week">Сб</div><div id="week">Вс</div>
                                 <span id="days"></span>	
@@ -107,7 +107,7 @@
                 </div>
             <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
                       <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-                      <script type="text/javascript" src="slick/slick.min.js"></script>
+                      <script type="text/javascript" src="<?php echo PROOT; ?>slick/slick.min.js"></script>
                       <script type="text/javascript">
                           $('.slider').slick({
                                 infinite: true,

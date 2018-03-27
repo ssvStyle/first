@@ -14,8 +14,7 @@ class Entry extends Controller {
     
     public function addNewItemAction($params) {
         $result = explode(':', $params);
-        //echo preg_match_all("~^[0-9]*:~u", $params);
-        dnd($result);
+        $this->view->render('addnewitem/index');
     }
 }
 
