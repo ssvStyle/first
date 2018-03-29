@@ -6,20 +6,32 @@ class Model extends DB {
         parent::__construct();
     }
     
-    public static function checkDate ($date){//Продумать проверку на ТОЛЬКО четное и корректное число месяца
+    public static function checkDate ($date){
         $day = $date[0];
         $month = $date[1];
         $year = $date[2];
-        if (!($day % 2)){
-                return $arayDate = ['day' => $day, 'month' => $month, 'year' => $year];
+            if(mktime(0, 0, 0, $month, $day, $year) >= mktime(0, 0, 0, date('n'), date('j'), date('Y'))){
+                return self::checkEvenNumber($day, $month, $year);
             } else {
-                    if(!($day++ % 2)){
+                return self::checkEvenNumber(date('j'), date('n'), date('Y'));
+            }
+    }
+    public function checkEvenNumber($day, $month, $year){
+        if (!($day % 2)){
                         return $arayDate = ['day' => $day, 'month' => $month, 'year' => $year];
                     } else {
-                        $day+2;
-                        return $arayDate = ['day' => $day, 'month' => $month, 'year' => $year];
+                            if(!(++$day % 2) && $day < 31){
+                                return $arayDate = ['day' => $day, 'month' => $month, 'year' => $year];
+                            } else {
+                                $day = 2;
+                                $month++; 
+                                if ($month > 12) {
+                                    $month = 1;
+                                    $year++;
+                                }
+                                return $arayDate = ['day' => $day, 'month' => $month, 'year' => $year];
+                            }
                     }
-            }
     }
 
 
