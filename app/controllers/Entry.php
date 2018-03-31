@@ -2,21 +2,26 @@
 
 //Контроллер
 class Entry extends Controller {
-    protected $data;
+    protected $AddNewEntry;
             
     function __construct($controller, $action) {
         parent::__construct($controller, $action);
-        $this->data = new AddNewEntry ();
+        $this->AddNewEntry = new AddNewEntry ();
     }
     public function indexAction() {
-        $this->view->setData($this->data->entryDay($result = ['day' => date('j'), 'month' => date('n'), 'year' => date('Y')]));
+        $this->view->setData($this->AddNewEntry->entryDay());
         $this->view->render('entry/index');
     }
     
-    public function addNewItemAction($params) {
-        $result = explode(':', $params);
-        $this->view->setData($this->data->entryDay($date = ['day' => $result[0],'month'=>$result[1],'year'=>$result[2]]));
-        $this->view->render('addnewitem/index');
+    public function setTimeAction($params) {
+        $this->view->setData($this->AddNewEntry->entryDay($params));
+        $this->view->render('settime/index');
+    }
+    
+    public function addEntryAction() {
+        $result = $this->AddNewEntry->addEntry($_POST);
+        $this->view->setData($result);
+        $this->view->render('addentry/index');
     }
 }
 

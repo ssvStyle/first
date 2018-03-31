@@ -39,7 +39,7 @@ var date= new Date();//Обьект дата
 					}
 					for(var i = 1; i <= daysInMonth; i++){
 						if (i % 2 == 0){
-								document.getElementById('days').innerHTML += '<a href="http://localhost/SSV/entry/addNewItem/'+ i +':' + (month+1) + ':' + year + '"><div id="day">' + i + '</div><a/>';
+								document.getElementById('days').innerHTML += '<a href="http://localhost/SSV/entry/settime/'+ i +':' + (month+1) + ':' + year + '"><div id="day">' + i + '</div><a/>';
 							}
 						else {
 							document.getElementById('days').innerHTML += '<div id="dayoff">' + i + '</div>';

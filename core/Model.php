@@ -7,22 +7,22 @@ class Model extends DB {
     }
     
     public static function checkDate ($date){
-        $day = $date['day'];
-        $month = $date['month'];
-        $year = $date['year'];
-            if(mktime(0, 0, 0, $month, $day, $year) >= mktime(0, 0, 0, date('n'), date('j'), date('Y'))){
-                if ($day > 31 || $month >12){
-                    $date = self::checkEvenNumber(date('j'), date('n'), date('Y'));
-                    $date['Error'] = 'Invalid date !!!';
-                    return $date;
+        if (preg_match("~^[0-9]{1,2}:[1-9]{1,2}:[0-9]{4}$~", $date)){
+            $date = explode(':', $date);//$date[0] - day, $date[1] - month, $date[2] - year
+                if(mktime(0, 0, 0, $date[1], $date[0], $date[2]) >= mktime(0, 0, 0, date('n'), date('j'), date('Y'))){
+                    if ($date[0] > 31 || $date[1] >12){
+                        return self::today();
+                    } else {
+                        return self::checkEvenNumber($date[0], $date[1], $date[2]);
+                    }
                 } else {
-                    return self::checkEvenNumber($day, $month, $year);
+                    return self::checkEvenNumber(date('j'), date('n'), date('Y'));
                 }
-            } else {
-                return self::checkEvenNumber(date('j'), date('n'), date('Y'));
-            }
+        } else {
+            return self::today();
+        }
     }
-    public function checkEvenNumber($day, $month, $year){
+    private function checkEvenNumber($day, $month, $year){
         if (!($day % 2)){
                         return $date = ['day' => $day, 'month' => $month, 'year' => $year];
                     } else {
@@ -39,6 +39,10 @@ class Model extends DB {
                             }
                     }
     }
-
+    private function today(){
+        $date = self::checkEvenNumber(date('j'), date('n'), date('Y'));
+        $date['Error'] = 'Invalid date !!!';
+        return $date;
+    }
 
 }

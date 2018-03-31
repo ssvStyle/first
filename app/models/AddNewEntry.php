@@ -20,4 +20,32 @@ class AddNewEntry extends Model {
 	return $today;
     }
     
+    public function addEntry($data){
+        /* $data -
+        ["hour"]=>string(7) "13 : 30"
+        ["service"]=>string(14) "Стрижка"
+        ["serviceAdd"]=>string(0) ""
+        ["day"]=>string(2) "20"
+        ["month"]=>string(1) "4"!!!
+        ["year"]=>string(4) "2018"!!!
+        ["name"]=>string(0) ""
+        ["phone"]=>string(0) ""
+        ["email"]=>string(0) ""
+        ["msg"]=>string(0) ""
+        ["uniqId"]=>timestamp day month year hour ""         */
+            if (isset($data)){
+                $rez = explode(' : ', $data['hour']);
+                $query= $this->prepare("INSERT INTO record (year, month, day, hour, name, number, email, service, serviceAdd, msg, uniqId) VALUES (:year, :month, :day, :hour, :name, :number, :email, :service, :serviceAdd, :msg, :uniqId)");
+		$values = ['year' => $data['year'], 'month' => $data['month'], 'day' => $data['day'], 'hour' => $data['hour'], 'name' => $data['name'], 'number' => $data['number'], 'email' => $data['email'], 'service' => $data['service'], 'serviceAdd' => $data['serviceAdd'], 'msg' => htmlspecialchars($data['msg']), 'uniqId' => mktime($rez[0], $rez[1], 0, $data['month'], $data['day'], $data['year'])];
+                $query->execute($values);
+                        if ($query->errorCode() == 00000){
+                            return $array = ['Entry' => 'Запись добавленна', $values];
+                        } else if ($query->errorCode() == 23000) {
+                            return $array = ['Entry' => 'Такая запись уже существует'];
+                        } else {
+                            return $array = ['Entry' => 'Error...'];
+                    }
+            }
+    }
+    
 }

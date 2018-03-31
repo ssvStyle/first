@@ -14,7 +14,7 @@
             Месяц - <?php echo $this->data['date']['month']; ?>
             Год - <?php echo $this->data['date']['year']; ?>
 					<div class="singIn">
-							<form action="lib/write.php" method="post"  id="form">
+							<form action="<?php echo PROOT;?>entry/addentry" method="post"  id="form">
 										<div id="dayTime"><br>
 											<?php foreach ($this->data as $k=>$v){
 												if ($v !== false && $k != 'date'){?>
@@ -55,20 +55,20 @@
 											<option value="------------">------------</option>
 										</select>&nbsp*
 										
-										<input type="hidden" name="day" value="<?php echo $arayDate['day'];?>">
-										<input type="hidden" name="month" value="<?php echo $arayDate['month'];?>">
-										<input type="hidden" name="year" value="<?php echo $arayDate['year'];?>">
+										<input type="hidden" name="day" value="<?php echo $this->data['date']['day'];?>">
+										<input type="hidden" name="month" value="<?php echo $this->data['date']['month'];?>">
+										<input type="hidden" name="year" value="<?php echo $this->data['date']['year'];?>">
 										<input type="hidden" name="name" value="<?php echo $_SESSION['name'];?>">
 										<input type="hidden" name="phone" value="<?php echo $_SESSION['phone'];?>">
 										<input type="hidden" name="email" value="<?php echo $_SESSION['email'];?>">
 				
 										<p>Коментарий к записи **</p>
 										<textarea name="msg" rows="7" cols="35"></textarea><br>
-										<?php if (isset($_SESSION['user_id'])){?>
-										<br><input type="submit" disabled="disabled" id="Button" value="Bыберите время">
-										<?php } else {?>
-										<p>Для записи <?php include 'views/needReg.php';?> <a href="registration.php">регистрация</a></p>
-										<?php }?>
+										<?php //if (isset($_SESSION['user_id'])){?>
+                                                                                <br><input type="submit"  id="Button" value="Bыберите время"><!--disabled="disabled"-->
+										<?php //} else {?>
+										<p>Для записи <?php //include 'views/needReg.php';?> <a href="registration.php">регистрация</a></p>
+										<?php //}?>
 										
 										<br><br><br>
 										<p>* <span>Доп. услуги выберите если нужно несколько услуг например: стрижка и мелирование.</span></p>
