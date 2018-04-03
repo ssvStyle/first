@@ -19,9 +19,9 @@ class Entry extends Controller {
     }
     
     public function addEntryAction() {
-        $result = $this->AddNewEntry->addEntry($_POST);
-        $this->view->setData($result);
-        $this->view->render('addentry/index');
+            $result = $this->AddNewEntry->addEntry($_POST);
+            $this->view->setData($result);
+            $this->view->render('addentry/index');
     }
 }
 

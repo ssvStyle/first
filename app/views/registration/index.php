@@ -7,7 +7,7 @@
 
 <?php $this->start('body'); ?>
         <!--body-->
-        <div class="rightCol"><div class="result"><?php// emptyForm();?></div>
+        <div class="rightCol"><div class="result"><?php// emptyForm();?></div><?php dnd($this->data); ?>
 				<h3>Регистрация нового пользователя</h3><hr><br>
 				<form method='post' class='reg-form'>
 							

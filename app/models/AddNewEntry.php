@@ -21,6 +21,21 @@ class AddNewEntry extends Model {
     }
     
     public function addEntry($data){
+            if (isset($data) && $data['hour'] != ''){
+                $rez = explode(' : ', $data['hour']);
+                $query= $this->prepare("INSERT INTO record (year, month, day, hour, name, number, email, service, serviceAdd, msg, uniqId) VALUES (:year, :month, :day, :hour, :name, :number, :email, :service, :serviceAdd, :msg, :uniqId)");
+		$values = ['year' => $data['year'], 'month' => $data['month'], 'day' => $data['day'], 'hour' => $data['hour'], 'name' => $data['name'], 'number' => $data['number'], 'email' => $data['email'], 'service' => $data['service'], 'serviceAdd' => $data['serviceAdd'], 'msg' => trim(htmlspecialchars($data['msg'])), 'uniqId' => mktime($rez[0], $rez[1], 0, $data['month'], $data['day'], $data['year'])];
+                $query->execute($values);
+                        if ($query->errorCode() == 00000){
+                            return $array = ['Entry' => 'Запись добавленна', $values];
+                        } else if ($query->errorCode() == 23000) {
+                            return $array = ['Entry' => 'Такая запись уже существует<br><a href="'.PROOT.'entry">Запись</a>'];
+                        } else {
+                            return $array = ['Entry' => 'Error...'];
+                    }
+            } else {
+                return $array = ['Entry' => 'Время не заданно<br><br>Запись не добавленна <a href="'.PROOT.'entry">Запись</a>'];
+            }
         /* $data -
         ["hour"]=>string(7) "13 : 30"
         ["service"]=>string(14) "Стрижка"
@@ -33,19 +48,6 @@ class AddNewEntry extends Model {
         ["email"]=>string(0) ""
         ["msg"]=>string(0) ""
         ["uniqId"]=>timestamp day month year hour ""         */
-            if (isset($data)){
-                $rez = explode(' : ', $data['hour']);
-                $query= $this->prepare("INSERT INTO record (year, month, day, hour, name, number, email, service, serviceAdd, msg, uniqId) VALUES (:year, :month, :day, :hour, :name, :number, :email, :service, :serviceAdd, :msg, :uniqId)");
-		$values = ['year' => $data['year'], 'month' => $data['month'], 'day' => $data['day'], 'hour' => $data['hour'], 'name' => $data['name'], 'number' => $data['number'], 'email' => $data['email'], 'service' => $data['service'], 'serviceAdd' => $data['serviceAdd'], 'msg' => trim(htmlspecialchars($data['msg'])), 'uniqId' => mktime($rez[0], $rez[1], 0, $data['month'], $data['day'], $data['year'])];
-                $query->execute($values);
-                        if ($query->errorCode() == 00000){
-                            return $array = ['Entry' => 'Запись добавленна', $values];
-                        } else if ($query->errorCode() == 23000) {
-                            return $array = ['Entry' => 'Такая запись уже существует'];
-                        } else {
-                            return $array = ['Entry' => 'Error...'];
-                    }
-            }
     }
     
 }

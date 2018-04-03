@@ -34,7 +34,7 @@
                                                                 <input placeholder="Номер телефона 067..." required="" id="username" type="text" name="login">
                                                                 <label>Пароль :</label>
                                                                 <input placeholder="Пароль" required="" id="password" type="password" name="pass">
-                                                                <input value="Войти" type="submit">
+                                                                <button type="submit">Войти</button>
                                                                 <a href="registration">Регистрация</a>
 							</form>
 						<?php } else { ?>

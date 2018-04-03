@@ -11,7 +11,7 @@ class User extends Model{
         $pass = md5($pass);
         $result = $this->query("SELECT * FROM users WHERE phone='".$login."' AND pass='".$pass."' LIMIT 1")->fetchALL(PDO::FETCH_ASSOC);
              if ($login == $result[0]['phone'] && $pass == $result[0]['pass']) {
-				$_SESSION['user_id'] = hash('tiger128,4', $result[0][id]);
+				$_SESSION['user_id'] = hash('tiger128,4', $result[0]['id']);
 				$_SESSION['name'] = $result[0]['name'];
 				$_SESSION['phone'] = $result[0]['phone'];
 				$_SESSION['email'] = $result[0]['email'];
@@ -23,6 +23,21 @@ class User extends Model{
 	setcookie (session_name(), '', time()-1000, '/');
 	session_destroy();
         }
+    }
+    public function registration($param) {
+    }
+    
+    protected function checkUserName ($name){
+        
+    }
+    protected function checkUserLogin($login) {
+        
+    }
+    protected function checkUserEmail($email) {
+        
+    }
+    protected function checkUserPass($pass, $passConfirm) {
+        
     }
 }
 
