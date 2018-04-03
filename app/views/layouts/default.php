@@ -28,14 +28,31 @@
                             <!--<a href="#"><img src="img/social/instagram.png" alt="instagram" title="instagram"></a>-->
                     </div>
                     <div class="login">
-                        <form action="<?php echo PROOT; ?>lib/autoriz" method="post">
+                        <?php if (!isset($_SESSION['user_id'])){?>
+							<form action="" method="post">
+								<input placeholder="Номер телефона 067..." required="" id="username" type="text" name="login">
+								<input placeholder="Пароль" required="" id="password" type="password" name="pass">
+								<input value="Войти" type="submit">
+								<a href="registration">Регистрация</a>
+							</form>
+						<?php } else { ?>
+                        Здравствуйте <?php echo $_SESSION['name'] ?><img src="images/user.png" width="14px" style=" padding-left: 10px;"><form action="" method="post"><button type="submit" name="logout" value="exit">Exit</button></form>
+									<?php if (isset($_SESSION['user_id']) && $_SESSION['phone'] == '0679070779'){?>
+										<a href="admin">Admin<img src="<?php echo PROOT; ?>images/mypage.png" width="14px" style=" padding-left: 10px;"></a>
+									<?php } else {?>
+										<a href="clientPage.php">Личный кабинет<img src="<?php echo PROOT; ?>images/mypage.png" width="14px" style=" padding-left: 10px;"></a> 
+									<?php }?>
+                                                                                
+									<!--<a href="">Выход <img src="<?php echo PROOT; ?>images/exit.png" width="14px" style="float:right; padding-left: 10px;"></a>-->
+						<?php } ?>
+                        <!--<form action="<?php //echo PROOT; ?>lib/autoriz" method="post">
                             <label>Логин :</label>
                             <input placeholder="Номер телефона 067..." required="" id="username" type="text" name="login">
                             <label>Пароль :</label>
                             <input placeholder="Пароль" required="" id="password" type="password" name="pass">
                             <input value="Войти" type="submit">
                             <a href="registration">Регистрация</a>
-                        </form>
+                        </form>-->
                     </div>
                 </div>
             <!--endTopBar-->
@@ -48,7 +65,7 @@
                             <div class="menuPages"><a href="<?php echo PROOT; ?>services">Виды услуг</a></div>
                             <div class="menuPages"><a href="<?php echo PROOT; ?>about">О сайте</a></div>
                             <div class="menuPages"><a href="<?php echo PROOT; ?>contact">Контакты</a></div>
-                    </div>  
+                    </div>  <?php dnd($_SESSION); ?>
                 </div>
             <!--endmenu-->
             <!--slider-->
@@ -105,10 +122,10 @@
             <div class="copyring">
                 <p>Copyright © 2018 s.s.v.</p>
                 </div>
-            <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-                      <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
-                      <script type="text/javascript" src="<?php echo PROOT; ?>slick/slick.min.js"></script>
-                      <script type="text/javascript">
+                    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+                    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+                    <script type="text/javascript" src="<?php echo PROOT; ?>slick/slick.min.js"></script>
+                    <script type="text/javascript">
                           $('.slider').slick({
                                 infinite: true,
                                 speed: 600,
@@ -118,6 +135,6 @@
                                 autoplay: true,
                                 autoplaySpeed: 5000
                             });
-                      </script>
+                    </script>
             </body>
 </html>

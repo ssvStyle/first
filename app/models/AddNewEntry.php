@@ -36,7 +36,7 @@ class AddNewEntry extends Model {
             if (isset($data)){
                 $rez = explode(' : ', $data['hour']);
                 $query= $this->prepare("INSERT INTO record (year, month, day, hour, name, number, email, service, serviceAdd, msg, uniqId) VALUES (:year, :month, :day, :hour, :name, :number, :email, :service, :serviceAdd, :msg, :uniqId)");
-		$values = ['year' => $data['year'], 'month' => $data['month'], 'day' => $data['day'], 'hour' => $data['hour'], 'name' => $data['name'], 'number' => $data['number'], 'email' => $data['email'], 'service' => $data['service'], 'serviceAdd' => $data['serviceAdd'], 'msg' => htmlspecialchars($data['msg']), 'uniqId' => mktime($rez[0], $rez[1], 0, $data['month'], $data['day'], $data['year'])];
+		$values = ['year' => $data['year'], 'month' => $data['month'], 'day' => $data['day'], 'hour' => $data['hour'], 'name' => $data['name'], 'number' => $data['number'], 'email' => $data['email'], 'service' => $data['service'], 'serviceAdd' => $data['serviceAdd'], 'msg' => trim(htmlspecialchars($data['msg'])), 'uniqId' => mktime($rez[0], $rez[1], 0, $data['month'], $data['day'], $data['year'])];
                 $query->execute($values);
                         if ($query->errorCode() == 00000){
                             return $array = ['Entry' => 'Запись добавленна', $values];
