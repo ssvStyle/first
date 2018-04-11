@@ -11,6 +11,11 @@ class Articles extends Model {
 	$query->execute();
 	return $this->fullArticle = $query->fetchALL(PDO::FETCH_ASSOC);
     }
+    public function getFullArticle($id) {
+        $query= $this->prepare("SELECT id, heading, fullArticle, date, source FROM articles  WHERE id = $id LIMIT 1");
+	$query->execute();
+	return $query->fetchALL(PDO::FETCH_ASSOC);
+    }
 
 }
 

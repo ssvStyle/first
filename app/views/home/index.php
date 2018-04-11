@@ -10,14 +10,14 @@
     <h2>Главная страница</h2><hr>
     
     <div class="bigTitleBlock">
-                    <img src="img/empty80.png"><h4><?php echo $this->data[$i]['heading']; ?></h4><p><?php echo $this->data[$i]['shortArticle']; ?></p><a href="show_full_article/<?php echo $this->data[$i]['id']?>"> читать далее...</a>
+                    <img src="img/empty80.png"><h4><?php echo $this->data[$i]['heading']; ?></h4><p><?php echo $this->data[$i]['shortArticle']; ?></p><a href="home/show_full_article/<?php echo $this->data[$i]['id']?>"> читать далее...</a>
     </div>
     
     
 <?php array_shift($this->data); ?>
             <?php for($i = 0; count($this->data) > $i; $i++):?>
                 <div class="smallTitleBlock">
-                    <img src="img/empty80.png"><h4><?php echo $this->data[$i]['heading']; ?></h4><p><?php echo $this->data[$i]['shortArticle']; ?></p><a href="show_full_article/<?php echo $this->data[$i]['id']?>"> читать далее...</a>
+                    <img src="img/empty80.png"><h4><?php echo $this->data[$i]['heading']; ?></h4><p><?php echo $this->data[$i]['shortArticle']; ?></p><a href="home/show_full_article/<?php echo $this->data[$i]['id']?>"> читать далее...</a>
                 </div>
             <?php endfor;?>
 
