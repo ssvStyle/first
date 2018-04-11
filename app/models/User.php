@@ -31,7 +31,8 @@ class User extends Model{
         $this->checkUserLogin($param['phone']);
         $this->checkUserPass($param['pass'], $param['passConfirm']);
             if ($this->error == array()) {
-                //add too DB
+                $this->addNewUser($this->login, $this->email, $this->phone, $this->pass);
+                return $this->error;
         } else {
             return $this->error;
         }
@@ -81,7 +82,20 @@ class User extends Model{
             } else {
                 $this->pass = $pass;
             }
-        
+    }
+    
+    protected function addNewUser($name, $email, $phone, $pass){
+        $query= $this->prepare("INSERT INTO users (name, email, phone, pass, date) VALUES (:name, :email, :phone, :pass, :date)");
+	$values = ['name' => $name, 'email' => $email, 'phone' => $phone, 'pass' => md5($pass), 'date' => time()];
+	$query->execute($values);
+	//$state = $query->errorCode();
+            if ($query->errorCode() == 00000) {
+		return $this->error[] = 'Пользователь добавлен';
+            } elseif ($query->errorCode() == 23000) {
+		return $this->error[] = 'Такой email или номер телефона уже используется';
+            } else {
+                return $this->error[] = 'Что-то пошло не так((((';
+            }
     }
 }
 

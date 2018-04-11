@@ -7,11 +7,8 @@ class Home extends Controller {
         
     }
     public function indexAction() {
+        $this->view->setData($this->Article->showAllArticles());
         $this->view->render('home/index');
-    }
-    public function successAction() {
-        //$this->view->render('home/index');
-        //$method= 'this is the success method';
     }
 }
 
