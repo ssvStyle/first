@@ -7,8 +7,8 @@
 
 <?php $this->start('body'); ?>
 <div class="rightCol">
-    <h2>Статья № <?php echo $this->data[0]['id']; ?></h2><hr>
-  <?php dnd($this->data); ?>
+    <h2><?php echo $this->data[0]['heading']; ?></h2>
+    <?php echo $this->data[0]['fullArticle']; ?>
 
 </div>
 
