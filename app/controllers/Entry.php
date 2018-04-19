@@ -13,9 +13,9 @@ class Entry extends Controller {
         $this->view->render('entry/index');
     }
     
-    public function setTimeAction($params) {
+    public function setDateAction($params) {
         $this->view->setData($this->AddNewEntry->entryDay($params));
-        $this->view->render('settime/index');
+        $this->view->render('setdate/index');
     }
     
     public function addEntryAction() {

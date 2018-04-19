@@ -1,5 +1,5 @@
 var date= new Date();//Обьект дата
-		
+		var nowDate = Date.parse(date.getFullYear()+'-'+(date.getMonth()+1)+'-'+date.getDate());
 		var rusMonth = ['Январь','Февраль','Март','Апрель','Май','Июнь','Июль','Август','Сентябрь','Октябрь','Ноябрь','Декабрь'];
 		var month = date.getMonth();
 		var year = date.getFullYear();
@@ -31,19 +31,25 @@ var date= new Date();//Обьект дата
 				dayInMonthCoanter();
 					showMonthAndYear();
 					dayCounter();
-				};
+				};//document.getElementById('days').innerHTML += '<a href="http://localhost/SSV/entry/settime/'+ i +':' + (month+1) + ':' + year + '"><div id="day">' + i + '</div><a/>';
+
 			function dayCounter(){
 				document.getElementById('days').innerHTML = "";
 					for(var i = 1; i < emptyDay; i++){
 						document.getElementById('days').innerHTML += '<div id="dayoff"></div>';
 					}
 					for(var i = 1; i <= daysInMonth; i++){
-						if (i % 2 == 0){
-								document.getElementById('days').innerHTML += '<a href="http://localhost/SSV/entry/settime/'+ i +':' + (month+1) + ':' + year + '"><div id="day">' + i + '</div><a/>';
-							}
-						else {
-							document.getElementById('days').innerHTML += '<div id="dayoff">' + i + '</div>';
-							}
+						if (i % 2 === 0 && Date.parse(year+'-'+(month+1)+'-'+i) > nowDate){//1
+                                                    document.getElementById('days').innerHTML += '<a href="http://localhost/SSV/entry/setdate/'+ i +':' + (month+1) + ':' + year + '"><div id="day">' + i + '</div><a/>';
+                                                } else if (i % 2 === 0 && Date.parse(year+'-'+(month+1)+'-'+i) == nowDate) {//2
+                                                    document.getElementById('days').innerHTML += '<a href="http://localhost/SSV/entry/setdate/'+ i +':' + (month+1) + ':' + year + '"><div id="now">' + i + '</div><a/>';
+                                                }else if (Date.parse(year+'-'+(month+1)+'-'+i) == nowDate) {//3
+                                                    document.getElementById('days').innerHTML += '<div id="now">' + i + '</div>';
+                                                     //alert(3);
+                                                } else {//4
+                                                    document.getElementById('days').innerHTML += '<div id="dayoff">' + i + '</div>';
+                                                     //alert(4);
+						}
 						
 						}
 				};

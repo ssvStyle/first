@@ -7,3 +7,11 @@ $(document).ready(function(){
         });
     });
 });
+
+function checkInput (form) {
+				var choiceTime = form.hour.value;
+				if(choiceTime !== ""){
+					document.getElementById("Button").setAttribute('value', "Записаться");
+					document.getElementById("Button").removeAttribute("disabled");
+				};
+			};

@@ -34,7 +34,7 @@ class AddNewEntry extends Model {
                             return $array = ['Entry' => 'Error...'];
                     }
             } else {
-                return $array = ['Entry' => 'Время не заданно<br><br>Запись не добавленна <a href="'.PROOT.'entry">Запись</a>'];
+                return $array = ['Entry' => '<br><br>Время не заданно !!!<br><br>Запись не добавленна !!! <a href="'.PROOT.'entry">Запись</a>'];
             }
         /* $data -
         ["hour"]=>string(7) "13 : 30"

@@ -23,8 +23,8 @@
             <!--TopBar-->
             	<div class="topBar">
                     <div class="social">
-                            <a href="#"><img src="<?php echo PROOT; ?>img/social/facebook.png" alt="facebook" title="facebook"></a>
-                            <a href="#"><img src="<?php echo PROOT; ?>img/social/google.png" alt="google" title="google"></a>
+                            <a href="https://www.facebook.com/profile.php?id=100011624896547"><img src="<?php echo PROOT; ?>img/social/facebook.png" alt="facebook" title="facebook"></a>
+                            <a href="https://plus.google.com/u/0/117666727034301662419"><img src="<?php echo PROOT; ?>img/social/google.png" alt="google" title="google"></a>
                             <!--<a href="#"><img src="img/social/instagram.png" alt="instagram" title="instagram"></a>-->
                     </div>
                     <div class="login">
@@ -104,7 +104,9 @@
                 <div class="footer">
                     <div class="contacts">
                             <h3>Контакты</h3>
-                            <p></p>
+                            <address>
+                                Украина г. Одесса<br>Ул. Давида Ойстраха 1<br>(бывш. Затонского)<br>Салон красоты &quot Локон &quot <br>Телефон: 80679070779<br>Email: ssv.style@gmail.com
+                            </address>
                     </div>
                     <div class="links">
                             <h3>Ссылки</h3>
