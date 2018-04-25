@@ -27,40 +27,36 @@
                             <a href="https://plus.google.com/u/0/117666727034301662419"><img src="<?php echo PROOT; ?>img/social/google.png" alt="google" title="google"></a>
                             <!--<a href="#"><img src="img/social/instagram.png" alt="instagram" title="instagram"></a>-->
                     </div>
-                    <div class="login">
-                        <?php if (!isset($_SESSION['user_id'])){?>
-							<form action="" method="post">
-								<label>Логин :</label>
+                    
+                    
+                        <?php if (!isset($_SESSION['user_id'])){?><div class="menuToggle"><img src="img/login.png" class="loginImg"></div>
+                                                    <div class="login">
+                                                        <form action="" method="post">
+                                                                <label>Логин : </label>
                                                                 <input placeholder="Номер телефона 067..." required="" id="username" type="text" name="login">
-                                                                <label>Пароль :</label>
-                                                                <input placeholder="Пароль" required="" id="password" type="password" name="pass">
-                                                                <button type="submit">Войти</button>
+                                                                <label>Пароль : </label><input placeholder="Пароль" required="" id="password" type="password" name="pass">
+                                                                <br><button type="submit">Войти</button>
                                                                 <a href="registration">Регистрация</a>
 							</form>
+                                                    </div>
 						<?php } else { ?>
-                        Здравствуйте <?php echo $_SESSION['name'] ?><img src="<?php echo PROOT; ?>img/user.png" width="14px" style=" padding-left: 10px;"><form action="" method="post"><button type="submit" name="logout" value="exit">Exit</button></form>
+                        <div class="hello">
+                        Здравствуйте <?php echo $_SESSION['name'] ?><img src="<?php echo PROOT; ?>img/user.png"><form action="" method="post"><button type="submit" name="logout" value="exit">Exit</button></form>
 									<?php if (isset($_SESSION['user_id']) && $_SESSION['phone'] == '0679070779'){?>
-										<a href="admin">Admin<img src="<?php echo PROOT; ?>img/mypage.png" width="14px"></a>
+										<a href="admin"> Admin <img src="<?php echo PROOT; ?>img/mypage.png"></a>
 									<?php } else {?>
-										<a href="clientPage">Личный кабинет<img src="<?php echo PROOT; ?>img/mypage.png" width="14px"></a> 
+										<a href="clientPage">Личный кабинет<img src="<?php echo PROOT; ?>img/mypage.png"></a> 
 									<?php }?>
-                                                                                
+                        </div>
 									<!--<a href="">Выход <img src="<?php echo PROOT; ?>images/exit.png" width="14px" style="float:right; padding-left: 10px;"></a>-->
 						<?php } ?>
-                        <!--<form action="lib/autoriz" method="post">
-                            <label>Логин :</label>
-                            <input placeholder="Номер телефона 067..." required="" id="username" type="text" name="login">
-                            <label>Пароль :</label>
-                            <input placeholder="Пароль" required="" id="password" type="password" name="pass">
-                            <input value="Войти" type="submit">
-                            <a href="registration">Регистрация</a>
-                        </form>-->
-                    </div>
+                    
                 </div>
             <!--endTopBar-->
             <!--menu-->
                 <div class="header">
                     <div class="logo"><a href="<?php echo PROOT; ?>home"><img src="<?php echo PROOT; ?>img/logov2.png" alt="Логотип" title="Логотип"></a></div>
+                    <div class="hambMenu"><img src="img/hambmenu.png"></div>
                     <div class="menu">
                         <div class="menuPages"><a href="<?php echo PROOT; ?>home">Главная</a></div>
                             <div class="menuPages"><a href="<?php echo PROOT; ?>entry">Запись</a></div>
