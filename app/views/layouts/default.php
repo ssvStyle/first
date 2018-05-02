@@ -13,7 +13,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo PROOT; ?>slick/slick-theme.css"/>
         <script async src="<?php echo PROOT; ?>js/calendar.js"></script>
         <?php echo $this->content('head'); ?>
-	<script  async src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<!--	<script  async src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
         <script async src="<?php echo PROOT; ?>js/scripts.js"></script>
         <script async src="<?php echo PROOT; ?>js/.js"></script>
          
@@ -29,26 +29,21 @@
                     </div>
                     
                     
-                        <?php if (!isset($_SESSION['user_id'])){?><div class="menuToggle"><img src="img/login.png" class="loginImg"></div>
+                        <?php if (!isset($_SESSION['user_id'])){?><div class="menuToggle"><img src="<?php echo PROOT; ?>img/login.png" class="loginImg"></div>
                                                     <div class="login">
                                                         <form action="" method="post">
                                                                 <label>Логин : </label>
                                                                 <input placeholder="Номер телефона 067..." required="" id="username" type="text" name="login">
                                                                 <label>Пароль : </label><input placeholder="Пароль" required="" id="password" type="password" name="pass">
                                                                 <br><button type="submit">Войти</button>
-                                                                <a href="registration">Регистрация</a>
+                                                                <a href="<?php echo PROOT; ?>registration">Регистрация</a>
 							</form>
                                                     </div>
 						<?php } else { ?>
                         <div class="hello">
-                        Здравствуйте <?php echo $_SESSION['name'] ?><img src="<?php echo PROOT; ?>img/user.png"><form action="" method="post"><button type="submit" name="logout" value="exit">Exit</button></form>
-									<?php if (isset($_SESSION['user_id']) && $_SESSION['phone'] == '0679070779'){?>
-										<a href="admin"> Admin <img src="<?php echo PROOT; ?>img/mypage.png"></a>
-									<?php } else {?>
-										<a href="clientPage">Личный кабинет<img src="<?php echo PROOT; ?>img/mypage.png"></a> 
-									<?php }?>
+                            Здравствуйте &nbsp<a href="<?php echo PROOT;?>mypage"><?php echo $_SESSION['name'] ?></a>&nbsp<form action="" method="post"><button type="submit" name="logout" value="exit">Exit</button></form>
                         </div>
-									<!--<a href="">Выход <img src="<?php echo PROOT; ?>images/exit.png" width="14px" style="float:right; padding-left: 10px;"></a>-->
+									<!--<a href="">Выход <img src="images/exit.png" width="14px" style="float:right; padding-left: 10px;"></a>-->
 						<?php } ?>
                     
                 </div>
@@ -56,7 +51,7 @@
             <!--menu-->
                 <div class="header">
                     <div class="logo"><a href="<?php echo PROOT; ?>home"><img src="<?php echo PROOT; ?>img/logov2.png" alt="Логотип" title="Логотип"></a></div>
-                    <div class="hambMenu"><img src="img/hambmenu.png"></div>
+                    <div class="hambMenu"><img src="<?php echo PROOT; ?>img/hambmenu.png"></div>
                     <div class="menu">
                         <div class="menuPages"><a href="<?php echo PROOT; ?>home">Главная</a></div>
                             <div class="menuPages"><a href="<?php echo PROOT; ?>entry">Запись</a></div>
@@ -70,20 +65,20 @@
                 <div class="slider">
                     <!--<div class="caption">это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал </div>
                 -->
-                        <div><img src="<?php echo PROOT; ?>img/galery/1.jpg" title="" alt=""></div>
+<!--                        <div><img src="<?php echo PROOT; ?>img/galery/1.jpg" title="" alt=""></div>
                         <div><img src="<?php echo PROOT; ?>img/galery/2.jpg" title="" alt=""></div>
                         <div><img src="<?php echo PROOT; ?>img/galery/3.jpg" title="" alt=""></div>
                         <div><img src="<?php echo PROOT; ?>img/galery/4.jpg" title="" alt=""></div>
                         <div><img src="<?php echo PROOT; ?>img/galery/5.jpg" title="" alt=""></div>
                         <div><img src="<?php echo PROOT; ?>img/galery/6.jpg" title="" alt=""></div>
                         <div><img src="<?php echo PROOT; ?>img/galery/7.jpg" title="" alt=""></div>
-                        <div><img src="<?php echo PROOT; ?>img/galery/8.jpg" title="" alt=""></div>
+                        <div><img src="<?php echo PROOT; ?>img/galery/8.jpg" title="" alt=""></div>-->
                 </div>
             <!--endslider-->
             <!--content-->
                 <div class="content">
                     <div class="leftCol">
-                        <p>Для записи выберите месяц и число<br><?php include 'views/needReg.php';?></p>
+                        <p>Для записи выберите месяц и число</p><br>
                             <div id="calendar">
                                 <noscript><?php include PROOT.'lib/calendar.php';?></noscript>
                                 <img src="<?php echo PROOT; ?>img/prev.png" alt="Предыдущий месяц" title="Предыдущий месяц" id="prevMonth" onclick="prevMonth()"  style="cursor: pointer;"><span id="monthJS"></span><img src="<?php echo PROOT; ?>img/next.png" alt="Следующий месяц" title="Следующий месяц" id="nextMonth" onclick="nextMonth()" style="cursor: pointer;">
@@ -122,8 +117,7 @@
             <div class="copyring">
                 <p>Copyright © 2018 s.s.v.</p>
                 </div>
-                    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
-                    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<!--                    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
                     <script type="text/javascript" src="<?php echo PROOT; ?>slick/slick.min.js"></script>
                     <script type="text/javascript">
                           $('.slider').slick({
@@ -135,6 +129,6 @@
                                 autoplay: true,
                                 autoplaySpeed: 5000
                             });
-                    </script>
+                    </script>-->
             </body>
 </html>

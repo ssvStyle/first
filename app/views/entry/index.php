@@ -10,9 +10,8 @@
         <div class="rightCol">
 		<h3>Добавить новую запись</h3>
 				<hr>
-                                <b>Выбранна дата:</b> День - <?php echo $this->data['date']['day']; ?>
-            Месяц - <?php echo $this->data['date']['month']; ?>
-            Год - <?php echo $this->data['date']['year']; ?>
+                                <b>Выбранна дата:</b> <?php echo $this->data['date']['day']; ?> <?php echo $this->data['date']['ruMonth']; ?> <?php echo $this->data['date']['year']; ?> Года
+            
 					<div class="entry">
 							<form action="<?php echo PROOT;?>entry/addentry" method="post"  id="form">
 										<div id="dayTime"><br>

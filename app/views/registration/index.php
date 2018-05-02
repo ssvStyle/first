@@ -9,9 +9,11 @@
         <!--body-->
         <div class="rightCol"><div class="result"></div>
 				<h3>Регистрация нового пользователя</h3><hr><br>
+                                <?php if (!empty($this->data)) { ?>
                                         <?php foreach ($this->data as $value): ?>
                                             <div class="formErr"><?php echo $value; ?></div>
                                         <?php endforeach; ?><br>
+                                <?php }?>
                                 <form action="<?php echo PROOT ?>registration/newuser" method='post' class='reg-form'>
 							
 						<div class='form-row'>

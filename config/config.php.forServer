@@ -1,0 +1,19 @@
+<?php
+//***********************************************************************
+ define('DNS', 'mysql:host=db2.ho.ua;dbname=ssv');
+ define('DBUSERNAME', 'ssv');
+ define('DBPASS', 'G8RvtjxwrD2JHNx7');
+ 
+ //***********************************************************************
+ define('DEBUG', false);
+ define('DEFAULT_CONTROLLER', 'Home');
+ define('DEFAULT_LAYOUT', 'default');
+ //***********************************************************************
+ define('PROOT', 'http://ssv.ho.ua/');
+ //***********************************************************************
+ define('SITE_TITLE', 'This is new mvc');
+  //Email
+ define('SMPTHOST', 'smtp.ukr.net');
+ define('EMAILUSERNAME', 'ssv.style@ukr.net');
+ define('EMAILPASS', 'kuhfy87y4rhwfieuhkwfi87');
+//***********************************************************************

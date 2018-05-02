@@ -6,10 +6,12 @@ class Router {
         //
         
         $controller = (isset($url[0]) && $url[0] != '') ? ucwords($url[0]) : DEFAULT_CONTROLLER;
+       //
        //var_dump($controller);
+       //var_dump(class_exists($controller));
         class_exists($controller) ? $controller_name = $controller : $controller = 'ErrorPage';
         $controller_name = $controller;
-        //var_dump($controller);
+       //var_dump($controller);
        
         array_shift($url);
         
@@ -29,7 +31,8 @@ class Router {
             call_user_func_array([$dispatch, $action], $queryParams);
         } else {
             //$controller = 'ErrorPage';
-            die('That method does not exist in the conttroller "' . $controller_name . '"');
+            //die('That method does not exist in the conttroller "' . $controller_name . '"');
+            header ('Location: '.PROOT.'ErrorPage');
         }
     }
 

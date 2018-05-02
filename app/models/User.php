@@ -8,15 +8,19 @@ class User extends Model{
     }
     
     
-    public function authorization($login, $pass) {
+    public function authorization($login = false, $pass = false) {
         $pass = md5($pass);
         $result = $this->query("SELECT * FROM users WHERE phone='".$login."' AND pass='".$pass."' LIMIT 1")->fetchALL(PDO::FETCH_ASSOC);
+        //var_dump($result);
+        if(!empty($result)){
              if ($login == $result[0]['phone'] && $pass == $result[0]['pass']) {
 				$_SESSION['user_id'] = hash('tiger128,4', $result[0]['id']);
 				$_SESSION['name'] = $result[0]['name'];
 				$_SESSION['phone'] = $result[0]['phone'];
 				$_SESSION['email'] = $result[0]['email'];
-			}
+        }
+        
+             }
     }
     public function logout($logout) {
         if ($logout === 'exit') {

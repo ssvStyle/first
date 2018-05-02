@@ -11,9 +11,7 @@
         <div class="rightCol">
             <h3>Добавить новую запись</h3>
 				<hr>
-                                <b><?php echo isset($this->data['date']['Error'])? $this->data['date']['Error'] : false; ?> Выбранна дата:</b> День - <?php echo $this->data['date']['day']; ?>
-            Месяц - <?php echo $this->data['date']['month']; ?>
-            Год - <?php echo $this->data['date']['year']; ?>
+                                <b><?php echo isset($this->data['date']['Error'])? $this->data['date']['Error'] : false; ?> Выбранна дата:</b> <?php echo $this->data['date']['day']; ?> <?php echo $this->data['date']['ruMonth']; ?> <?php echo $this->data['date']['year']; ?> Года
 					<div class="entry">
 							<form action="<?php echo PROOT;?>entry/addentry" method="post"  id="form">
 										<div id="dayTime"><br>
@@ -68,7 +66,7 @@
 										<?php if (isset($_SESSION['user_id'])){?>
                                                                                 <br><input type="submit" disabled="disabled" id="Button" value="Bыберите время"><!--disabled="disabled"-->
 										<?php } else {?>
-										<p>Для записи <a href="registration">Зарегистрируйтесь</a></p>
+										<p>Для записи <a href="<?php echo PROOT;?>registration">Зарегистрируйтесь</a></p>
 										<?php }?>
 										
 										<br><br><br>

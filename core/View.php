@@ -1,12 +1,8 @@
 <?php
 
-//use AddNewEntry;
-
 class View {
     protected $head, $body, $siteTitle = SITE_TITLE, $outputBuffer, $layout = DEFAULT_LAYOUT, $data;
-    public function __construct($param) {
-        
-    }
+    
     public function setData($data) {
         $this->data = $data;
     }

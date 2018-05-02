@@ -2,13 +2,11 @@
 
 class Registration extends Controller{
     
-    //protected $error;
-    
     function __construct($controller, $action) {
         parent::__construct($controller, $action);
     }
     
-    public function indexAction($error) {
+    public function indexAction($error = false) {
         $this->view->setData($error);
         $this->view->render('registration/index');
     }

@@ -1,9 +1,11 @@
 <?php
 session_start();
+
+ini_set("display_errors","1");
+ini_set("error_reporting", E_ALL);
+
 define('ROOT', dirname(__FILE__));
-//echo ROOT.'<br>';
 
 $url = isset($_SERVER['PATH_INFO']) ? explode('/', ltrim($_SERVER['PATH_INFO'], '/')) : [];
 
-//print_r($url);
 require_once ROOT.'/core/bootstrap.php';

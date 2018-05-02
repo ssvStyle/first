@@ -22,7 +22,7 @@ class Model extends DB {
             return self::today();
         }
     }
-    private function checkEvenNumber($day, $month, $year){
+    private static function checkEvenNumber($day, $month, $year){
         if (!($day % 2)){
                         return $date = ['day' => $day, 'month' => $month, 'year' => $year];
                     } else {
@@ -39,10 +39,9 @@ class Model extends DB {
                             }
                     }
     }
-    private function today(){
+    private static function today(){
         $date = self::checkEvenNumber(date('j'), date('n'), date('Y'));
         $date['Error'] = 'Invalid date !!!';
         return $date;
     }
-
 }
