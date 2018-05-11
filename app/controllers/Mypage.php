@@ -1,10 +1,13 @@
 <?php
 
+//use Articles;
+
 class Mypage extends Controller{
-    
-    
+    protected $Article;
+            
     function __construct($controller, $action) {
         parent::__construct($controller, $action);
+        $this->Article = new Articles();
     }
     
     public function indexAction() {
@@ -23,22 +26,32 @@ class Mypage extends Controller{
     public function addarticleAction() {
         if (isset($_SESSION['user_id']) && $_SESSION['phone'] === '0679070779'){
             if (isset($_POST['addArticle'])) {
-                $article = new Articles();
-                $this->view->setData($article->addArticle($_POST));
-            }
+                $this->view->setData($this->Article->addArticle($_POST));
+                $this->view->render('addarticle/index');
+            } else if (isset($_POST['changeAticles'])) {
+                //var_dump($_POST);
+                $this->view->setData($_POST);
+                $this->view->render('addarticle/index');
+            } else if (isset($_POST['SaveChanges'])){
+                $this->view->setData($this->Article->updateArticle($_POST));
                 $this->view->render('addarticle/index');
             } else {
-                header ('Location: '.PROOT.'home');
+                $this->view->render('addarticle/index');
             }
+        }
     }
     
     public function editarticleAction() {
         if (isset($_SESSION['user_id']) && $_SESSION['phone'] === '0679070779'){
-            //if (isset($_POST['editArticle'])) {
-                $article = new Articles();
-                $this->view->setData($article->showAllFullArticles());
+                if (isset($_POST['delArticle']) && is_numeric($_POST['delArticle'])) {
+                    $this->view->setData($this->Article->deleteArticles($_POST['delArticle']));
+                    $this->view->render('editarticle/index');
+                } else {
+                    $this->view->setData($this->Article->showAllFullArticles());
+                    $this->view->render('editarticle/index');
+                }
             //}
-                $this->view->render('editarticle/index');
+                
             //} else {
                 //header ('Location: '.PROOT.'home');
             }
@@ -50,7 +63,7 @@ class Mypage extends Controller{
             $this->view->setData($result);
             $this->view->render('deleteentry/index');
         } else {
-                header ('Location: '.PROOT.'home');
+            header ('Location: '.PROOT.'home');
         }
     }
 }

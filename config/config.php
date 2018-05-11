@@ -5,7 +5,7 @@
  define('DBPASS', 'G8RvtjxwrD2JHNx7');
  //***********************************
  
- define('DEBUG', true);
+ define('DEBUG', TRUE);
  define('DEFAULT_CONTROLLER', 'Home');
  define('DEFAULT_LAYOUT', 'default');
  

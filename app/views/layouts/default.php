@@ -13,7 +13,7 @@
         <link rel="stylesheet" type="text/css" href="<?php echo PROOT; ?>slick/slick-theme.css"/>
         <script async src="<?php echo PROOT; ?>js/calendar.js"></script>
         <?php echo $this->content('head'); ?>
-<!--	<script  async src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>-->
+	<script  async src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script async src="<?php echo PROOT; ?>js/scripts.js"></script>
         <script async src="<?php echo PROOT; ?>js/.js"></script>
          
@@ -65,14 +65,14 @@
                 <div class="slider">
                     <!--<div class="caption">это текст-"рыба", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной "рыбой" для текстов на латинице с начала XVI века. В то время некий безымянный печатник создал </div>
                 -->
-<!--                        <div><img src="<?php echo PROOT; ?>img/galery/1.jpg" title="" alt=""></div>
+                        <div><img src="<?php echo PROOT; ?>img/galery/1.jpg" title="" alt=""></div>
                         <div><img src="<?php echo PROOT; ?>img/galery/2.jpg" title="" alt=""></div>
                         <div><img src="<?php echo PROOT; ?>img/galery/3.jpg" title="" alt=""></div>
                         <div><img src="<?php echo PROOT; ?>img/galery/4.jpg" title="" alt=""></div>
                         <div><img src="<?php echo PROOT; ?>img/galery/5.jpg" title="" alt=""></div>
                         <div><img src="<?php echo PROOT; ?>img/galery/6.jpg" title="" alt=""></div>
                         <div><img src="<?php echo PROOT; ?>img/galery/7.jpg" title="" alt=""></div>
-                        <div><img src="<?php echo PROOT; ?>img/galery/8.jpg" title="" alt=""></div>-->
+                        <div><img src="<?php echo PROOT; ?>img/galery/8.jpg" title="" alt=""></div>
                 </div>
             <!--endslider-->
             <!--content-->
@@ -117,7 +117,7 @@
             <div class="copyring">
                 <p>Copyright © 2018 s.s.v.</p>
                 </div>
-<!--                    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+                    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
                     <script type="text/javascript" src="<?php echo PROOT; ?>slick/slick.min.js"></script>
                     <script type="text/javascript">
                           $('.slider').slick({
@@ -129,6 +129,6 @@
                                 autoplay: true,
                                 autoplaySpeed: 5000
                             });
-                    </script>-->
+                    </script>
             </body>
 </html>
